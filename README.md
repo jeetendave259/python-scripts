@@ -45,11 +45,12 @@ pip install pandas
 
 ```
 python-scripts/
-├── dataFrameSize.py          # DataFrame dimension calculator
-├── dataframeFromList.py       # Convert 2D list to DataFrame
-├── logAnalysis.py             # Apache log file analyzer
-├── README.md                  # This file
-└── <new_script>.py           # (Add new scripts here)
+├── dataFrameSize.py              # DataFrame dimension calculator
+├── dataframeFromList.py          # Convert 2D list to DataFrame
+├── dataFrameFirstThreeRows.py    # Display first 3 rows of DataFrame
+├── logAnalysis.py                # Apache log file analyzer
+├── README.md                     # This file
+└── <new_script>.py              # (Add new scripts here)
 ```
 
 ---
@@ -235,6 +236,51 @@ Each script includes:
 
 ---
 
+### 4. **dataFrameFirstThreeRows.py** - Display First 3 Rows
+
+**Purpose:**  
+Extract and display the first 3 rows of a pandas DataFrame for quick data inspection and preview.
+
+**Use Cases:**
+- Quick data preview without scrolling through large datasets
+- Verify data structure and content
+- Sample inspection before processing
+- Data quality checks
+- Initial exploration of unfamiliar datasets
+
+**Dependencies:**
+- `pandas`
+- `typing` (standard library)
+
+**Usage:**
+```python
+import pandas as pd
+from dataFrameFirstThreeRows import selectFirstRows
+
+# Create a sample employee DataFrame
+data = {
+    'employee_id': [1, 2, 3, 4, 5],
+    'name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'department': ['HR', 'Engineering', 'Marketing', 'Sales', 'Finance'],
+    'salary': [70000, 80000, 75000, 72000, 68000]
+}
+employees = pd.DataFrame(data)
+
+# Display the first 3 rows
+result = selectFirstRows(employees)
+print(result)
+```
+
+**Output:**
+```
+   employee_id     name   department  salary
+0            1    Alice           HR   70000
+1            2      Bob  Engineering   80000
+2            3  Charlie    Marketing   75000
+```
+
+---
+
 ## 🔄 Adding New Scripts
 
 When adding a new script to this repository:
@@ -316,14 +362,14 @@ This repository is available for educational and commercial use.
 
 ## ✨ Features Across Scripts
 
-| Feature | dataFrameSize.py | dataframeFromList.py | logAnalysis.py |
-|---------|------------------|----------------------|----------------|
-| Memory Efficient | ✅ | ✅ | ✅ (Streaming) |
-| Error Handling | ✅ | ✅ | ✅ |
-| Type Hints | ✅ | ✅ | ✅ |
-| Documented | ✅ | ✅ | ✅ |
-| Pandas Required | ✅ | ✅ | ❌ |
-| Scalable | ✅ | ✅ | ✅ (20GB+) |
+| Feature | dataFrameSize.py | dataframeFromList.py | dataFrameFirstThreeRows.py | logAnalysis.py |
+|---------|------------------|----------------------|----------------------------|----------------||
+| Memory Efficient | ✅ | ✅ | ✅ | ✅ (Streaming) |
+| Error Handling | ✅ | ✅ | ✅ | ✅ |
+| Type Hints | ✅ | ✅ | ✅ | ✅ |
+| Documented | ✅ | ✅ | ✅ | ✅ |
+| Pandas Required | ✅ | ✅ | ✅ | ❌ |
+| Scalable | ✅ | ✅ | ✅ | ✅ (20GB+) |
 
 ---
 
@@ -331,4 +377,4 @@ This repository is available for educational and commercial use.
 
 For questions or improvements, feel free to open an issue or submit a pull request.
 
-**Last Updated:** March 9, 2026
+**Last Updated:** March 9, 2026 (Added dataFrameFirstThreeRows.py)
